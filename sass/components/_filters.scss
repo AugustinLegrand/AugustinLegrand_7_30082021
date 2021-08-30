@@ -1,0 +1,169 @@
+.filters {
+    margin-top: 25px;
+    display: flex;
+    flex-flow: row wrap;
+
+    .filter {
+
+        &-ingredients {
+            background-color: var(--filter-color-ingredient);
+        }
+
+        &-appareils {
+            background-color: var(--filter-color-appareil);
+        }
+
+        &-ustensils {
+            background-color: var(--filter-color-ustensils);
+        }
+
+        &-select {
+
+            margin-right: var(--filters-margin);
+
+            &.filter-open {
+
+                .filter-select-wrapper {
+                    width: 500px;
+                }
+
+                .filter-select__trigger {
+
+                    width: 500px;
+                    
+                    span {
+                        display: none;
+                    }
+
+                    input {
+                        display: flex;
+                        height: 100%;
+                        border: none;
+
+                        &.input-ingredients {
+                            background: var(--filter-color-ingredient);
+                        }
+
+                        &.input-appareils {
+                            background: var(--filter-color-appareil);
+                        }
+
+                        &.input-ustensils {
+                            background: var(--filter-color-ustensils);
+                        }
+    
+                        &::-webkit-search-cancel-button {
+                            -webkit-appearance: none;
+                        }
+                        
+                        &::placeholder {
+                            opacity: 50%;
+                            font-size: 18px;
+                            line-height: 21.6px;
+                            color: #FFFFFF;
+                        }
+    
+                        color: #FFFFFF;
+                        font-size: 18px;
+                        line-height: 21.6px;
+                        outline: 0;
+                        padding: 20px;
+                        width: 100%;
+                    }
+
+                    .arrow {
+                        position: absolute;
+                        left: 92%;
+                        top: 40%;
+                        bottom: 0%;
+                        transform: rotate(-135deg);
+                        -webkit-transform: rotate(-135deg);
+                        cursor: pointer;
+                    }
+
+                }
+
+                .filter-options {
+                    display: grid;
+                }
+
+            }
+
+            &-wrapper {
+                user-select: none;
+            }
+
+            &__trigger {
+
+                position: relative;
+                width: 170px;
+                height: 69px;
+                border-radius: 5px;
+
+                span {
+                    color: var(--filter-color-text);
+                    font-size: var(--filter-size-text);
+                    line-height: var(--filter-line-height-text);
+                    position: absolute;
+                    left: 8.82%;
+                    right: 38.24%;
+                    top: 33.33%;
+                    bottom: 34.78%;
+                    text-align: center;
+                }
+
+                input {
+                    display: none;
+                }
+
+                .arrow {
+                    position: absolute;
+                    left: 80%;
+                    top: 35.79%;
+                    bottom: 33.33%;
+    
+                    border: solid white;
+                    border-width: 0 3px 3px 0;
+                    width: 3px;
+                    height: 3px;
+                    padding: 3px;
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                    z-index: 999;
+                }
+
+            }
+
+            
+
+        }
+
+        &-options {
+            display: none;
+            grid-template-columns: repeat(3, minmax(150px, 150px));
+            position: absolute;
+            padding-top: 20px;
+            width: 500px;
+            color: #FFFFFF;
+            border-radius: 0 0 5px 5px;
+            gap: 10px;
+            padding-left: 19px;
+            padding-bottom: 16px;
+
+            &-ingredients {
+                background: var(--filter-color-ingredient);
+            }
+
+            &-appareils {
+                background: var(--filter-color-appareil);
+            }
+
+            &-ustensils {
+                background: var(--filter-color-ustensils);
+            }
+
+        }
+
+    }
+
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Les petits plats</title>
+        <meta name="description" content="Ples petits plats - découvrez les recettes de cuisine !" />
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="shortcut icon" href="./resources/logo.svg" type="image/x-icon" />
+    </head>
+    <body>
+        
+        <header class="header" role="banner">
+            <img src="./resources/logo.svg" alt="Logo les petits plats" />
+            <div class="search">
+                <input class="search-input" type="search" id="searchInput" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette" />
+                <img class="search-icon" src="./resources/icons/Search.svg" alt="Icon search" />
+            </div>
+        </header>
+        <main class="main" role="main">
+            <section id="tags"></section>
+            <section class="filters">
+
+                <div class="filter-select-wrapper">
+                    <div class="filter-select">
+                        <div class="filter-select__trigger filter-ingredients">
+                            <span>Ingredients</span>
+                            <input type="search" class="input-ingredients" id="" placeholder="Rechercher un ingredient" />
+                            <i class="arrow"></i>
+                        </div>
+                        <div class="filter-options filter-options-ingredients"></div>
+                    </div>
+                </div>
+    
+                <div class="filter-select-wrapper">
+                    <div class="filter-select">
+                        <div class="filter-select__trigger filter-appareils">
+                            <span>Appareil</span>
+                            <input type="search" class="input-appareils" id="" placeholder="Rechercher un appareil" autofocus>
+                            <i class="arrow"></i>
+                        </div>
+                        <div class="filter-options filter-options-appareils"></div>
+                    </div>
+                </div>
+    
+                <div class="filter-select-wrapper">
+                    <div class="filter-select">
+                        <div class="filter-select__trigger filter-ustensils">
+                            <span>Ustensils</span>
+                            <input type="search" class="input-ustensils" id="" placeholder="Rechercher un ingredient" autofocus>
+                            <i class="arrow"></i>
+                        </div>
+                        <div class="filter-options filter-options-ustensils"></div>
+                    </div>
+                </div>
+    
+            </section>
+            <section id="recipes"></section>
+
+        <script src="./data/recipes.js"></script>
+        <script src="./js/Tags.js"></script>
+        <script src="./js/App.js"></script>
+        <script src="./js/Search.js"></script>
+        <script src="./js/Filters.js"></script>
+    </body>
+</html>

@@ -1,0 +1,190 @@
+@font-face {
+    font-family: "DM Sans";
+    src:
+        url("../fonts/DMSans-Bold.ttf") format("truetype")
+        url("../fonts/DMSans-BoldItalic.ttf") format("truetype")
+        url('../fonts/DMSans-Italic.ttf') format("truetype")
+        url('../fonts/DMSans-Medium.ttf') format("truetype")
+        url('../fonts/DMSans-MediumItalic.ttf') format("truetype")
+        url("../fonts/DMSans-Regular.ttf") format("truetype");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+    margin-top: 43px;
+    margin-bottom: 15px;
+
+    .search {
+        position: relative;
+        margin-top: 17px;
+        width: 100%;
+        height: 69px;
+        background: #E7E7E7;
+        border-radius: 5px;
+
+        &-input {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: #E7E7E7;
+            padding-left: 15px;
+            border: none;
+            outline: 0;
+            border-radius: 5px;
+            font-size: 0.8em;
+        }
+
+        &-icon {
+            position: absolute;
+            top: 10%;
+            right: 0;
+            transform: translate(-50%, 50%);
+            width: 25px;
+            height: 25px;
+        }
+        
+    }
+
+}
+
+.main {
+
+    #tags {
+        display: flex;
+        flex-flow: row wrap;
+        margin: 100px;
+        margin-top: 0;
+        margin-bottom: 15px;
+
+        .tag {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px;
+            border-radius: 5px;
+            font-family: 'Lato';
+            font-size: 18px;
+            line-height: 16.8px;
+            color: #FFFFFF;
+            padding: 10px;
+            padding-left: 20px;
+
+            &-cancel {
+                margin-left: 10px;
+                margin-right: 10px;
+                display: flex;
+                align-items: center;
+                width: 1em;
+                height: 1em;
+            }
+
+            &-ingredients {
+                background: #3282F7;
+            }
+
+        }
+
+    }
+
+    #recipes {
+
+        display: grid;
+        grid-template-columns: repeat(1, minmax(380px, 380px));
+        justify-content: center;
+        gap: 50px;
+
+        .recipe {
+
+            background: #E7E7E7;
+            border-radius: 5px;
+
+            &-background {
+                background: #C7BEBE;
+                width: 380px;
+                height: 178px;
+                border-radius: 5px 5px 0px 0px;
+            }
+
+            &-body {
+                margin: 20px;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            &-title {
+                font-family: 'Lato', sans-serif;
+                font-size: 18px;
+                line-height: 21.6px;
+                font-weight: normal;
+            }
+
+            &-time {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                font-family: 'Lato', sans-serif;
+                font-size: 18px;
+                line-height: 21.6px;
+                font-weight: bold;
+            }
+
+            &-ingredients {
+                list-style-type: none;
+                margin-top: 20px;
+                font-size: 12px;
+                line-height: 14.4px;
+            }
+
+            &-description {
+                margin-top: 20px;
+                display: -webkit-box;
+                max-width: 200px;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                font-size: 12px;
+                line-height: 12px;
+            }
+
+        }
+
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    .main {
+
+        #recipes {
+            grid-template-columns: repeat(2, minmax(380px, 380px));
+        }
+
+    }
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .main {
+
+        #recipes {
+            grid-template-columns: repeat(3, minmax(380px, 380px));
+        }
+
+    }
+
+}

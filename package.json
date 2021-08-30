@@ -1,0 +1,10 @@
+{
+  "name": "project-7",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "DevAugustin",
+  "license": "MIT",
+  "scripts": {
+    "sass": "sass --watch sass:css --style compressed"
+  }
+}
