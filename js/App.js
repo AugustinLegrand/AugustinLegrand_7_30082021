@@ -107,18 +107,30 @@ function initFilters () {
         const filter_appareil = document.querySelector(".filter-options-appareils")
         appareils.map (appareil => {
 
-            filter_appareil.innerHTML += `
-            <span class="filter-option">${appareil}</span>
-            `
+            const appareilElement = document.createElement("span")
+            appareilElement.classList.add("filter-option")
+            appareilElement.innerHTML = appareil
+
+            appareilElement.addEventListener("click", () => {
+                addTag ("appareils", appareil.toLowerCase())
+            })
+            
+            filter_appareil.appendChild(appareilElement)
 
         })
 
         const filter_ustensil = document.querySelector(".filter-options-ustensils")
         ustensils.map (ustensil => {
 
-            filter_ustensil.innerHTML += `
-            <span class="filter-option">${ustensil}</span>
-            `
+            const ustensilElement = document.createElement("span")
+            ustensilElement.classList.add("filter-option")
+            ustensilElement.innerHTML = ustensil
+
+            ustensilElement.addEventListener("click", () => {
+                addTag ("ustensils", ustensil.toLowerCase())
+            })
+            
+            filter_ustensil.appendChild(ustensilElement)
 
         })
     

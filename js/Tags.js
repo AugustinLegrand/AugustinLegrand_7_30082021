@@ -39,7 +39,6 @@ function addTag (key, value) {
 
     loadTag()
     filterLoad()
-
 }
 
 /**
@@ -82,7 +81,6 @@ function removeTag (key, id) {
 
     loadTag()
     filterLoad()
-
 }
 
 function deleteTagsViews(key) {
@@ -162,6 +160,8 @@ function loadTag () {
 function filterLoad () {
 
     const filter_ingredients = []
+    const filter_appareils = []
+    const filter_ustensils = []
 
     const ingredients = recipes.filter (recipe => {
         return tags.ingredients.every (tag => {
@@ -169,9 +169,28 @@ function filterLoad () {
         })
     })
 
-    ingredients.map (ingredient => {
-        ingredient.ingredients.map(it => {
+    const ustensils = ingredients.filter (recipe => {
+        return tags.ustensils.every (tag => {
+            return recipe["ustensils"].some (t => tag.value.toLowerCase() === t.toLowerCase())
+        })
+    })
+
+    const data = ustensils.filter (recipe => {
+        return tags.appareils.every (tag => {
+            return recipe.appliance.toLowerCase() === tag.value.toLowerCase()
+        })
+    })
+
+    data.map (recipe => {
+        console.log(recipe);
+        recipe.ingredients.map(it => {
             if (!filter_ingredients.includes(it.ingredient.toLowerCase())) filter_ingredients.push (it.ingredient.toLowerCase())
+        })
+
+        if (!filter_appareils.includes(recipe.appliance.toLowerCase())) filter_appareils.push(recipe.appliance.toLowerCase())
+
+        recipe.ustensils.map (ust => {
+            if (!filter_ustensils.includes(ust.toLowerCase())) filter_ustensils.push(ust.toLowerCase())
         })
     })
 
@@ -183,6 +202,10 @@ function filterLoad () {
 
     filter_ingredients.map(ingredient => {
 
+        tags.ingredients.map (it => {
+            if (it.value.toLowerCase() === ingredient.toLowerCase()) return
+        })
+
         const ingredientElement = document.createElement("span")
         ingredientElement.classList.add("filter-option")
         ingredientElement.innerHTML = ingredient
@@ -193,6 +216,85 @@ function filterLoad () {
         
         ingredients_element.appendChild(ingredientElement)
 
+    })
+
+    // * OPTIONS FILTER APPAREILS
+
+    const appareils_element = document.querySelector(".filter-options-appareils")
+    
+    appareils_element.innerHTML = ""
+
+    filter_appareils.map(appareil => {
+
+        const appareilElement = document.createElement("span")
+        appareilElement.classList.add("filter-option")
+        appareilElement.innerHTML = appareil
+
+        appareilElement.addEventListener("click", () => {
+            addTag ("appareils", appareil.toLowerCase())
+        })
+        
+        appareils_element.appendChild(appareilElement)
+
+    })
+
+    // * OPTIONS FILTER USTENSILS
+
+    const ustensils_element = document.querySelector(".filter-options-ustensils")
+    
+    ustensils_element.innerHTML = ""
+
+    filter_ustensils.map(ustensil => {
+
+        const ustensilElement = document.createElement("span")
+        ustensilElement.classList.add("filter-option")
+        ustensilElement.innerHTML = ustensil
+
+        ustensilElement.addEventListener("click", () => {
+            addTag ("ustensils", ustensil.toLowerCase())
+        })
+        
+        ustensils_element.appendChild(ustensilElement)
+
+    })
+
+}
+
+
+/**
+ * ! Function inutile
+ * 
+ * @param {*} type 
+ */
+function filterViews (type) {
+
+    const filterElement = []
+    
+    const elementsChoice = {
+        ingredients: (recipe) => {
+            tags.ingredients.every(tag => {
+                return recipe ["ingredients"].some (t => tag.value.toLowerCase() === t.ingredient.toLowerCase())
+            })
+        },
+        appareils: (recipe) => {
+            tags.appareils.every(tag => {
+                return recipe ["appareils"].some(t => tag.value.toLowerCase() === t.toLowerCase())
+            })
+        },
+        ustensils: (recipe) => {
+            tags.ustensils.every(tag => {
+                return recipe["ustensils"].some (t => tag.value.toLowerCase() === t.toLowerCase())
+            })
+        }
+    }
+    const elements = recipes.filter (recipe => {
+        return (elementsChoice[type])(recipe)
+    })
+
+    elements.map (element => {
+        element[type].map (item => {
+            console.log(item);
+        })
     })
 
 }
