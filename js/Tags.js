@@ -202,9 +202,6 @@ function filterLoad () {
 
     filter_ingredients.map(ingredient => {
 
-        tags.ingredients.map (it => {
-            if (it.value.toLowerCase() === ingredient.toLowerCase()) return
-        })
 
         const ingredientElement = document.createElement("span")
         ingredientElement.classList.add("filter-option")
@@ -215,6 +212,13 @@ function filterLoad () {
         })
         
         ingredients_element.appendChild(ingredientElement)
+        
+        tags.ingredients.map (it => {
+            if (it.value.toLowerCase() === ingredient.toLowerCase()) {
+                ingredients_element.removeChild(ingredientElement)
+            }
+        })
+        
 
     })
 
@@ -236,6 +240,12 @@ function filterLoad () {
         
         appareils_element.appendChild(appareilElement)
 
+        tags.appareils.map (appa => {
+            if (appa.value.toLowerCase() === appareil.toLowerCase()) {
+                appareils_element.removeChild(appareilElement)
+            }
+        })
+
     })
 
     // * OPTIONS FILTER USTENSILS
@@ -255,6 +265,12 @@ function filterLoad () {
         })
         
         ustensils_element.appendChild(ustensilElement)
+
+        tags.ustensils.map (ust => {
+            if (ust.value.toLowerCase() === ustensil.toLowerCase()) {
+                ustensils_element.removeChild(ustensilElement)
+            }
+        })
 
     })
 
