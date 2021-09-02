@@ -1,15 +1,30 @@
 .header {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 42px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 15px;
 }
 
 .main {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 15px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .header {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 42px;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    
+    .main {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    
 }

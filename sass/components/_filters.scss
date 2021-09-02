@@ -25,6 +25,7 @@
 
                 .filter-select-wrapper {
                     width: 500px;
+                    z-index: 999;
                 }
 
                 .filter-select__trigger {
@@ -85,6 +86,7 @@
 
                 .filter-options {
                     display: grid;
+                    z-index: 999px;
                 }
 
             }
