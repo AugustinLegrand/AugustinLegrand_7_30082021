@@ -1896,7 +1896,4 @@ const recipes = [
     }
 ]
 
-function find (id) {
-    return recipes.filter(item => item.id === id)[0]
-
-}
+let filterRecipes = [...recipes]

@@ -6,5 +6,8 @@
   "license": "MIT",
   "scripts": {
     "sass": "sass --watch sass:css --style compressed"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
   }
 }

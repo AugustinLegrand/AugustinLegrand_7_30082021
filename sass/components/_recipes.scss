@@ -42,6 +42,11 @@
             font-size: 18px;
             line-height: 21.6px;
             font-weight: bold;
+
+            img {
+                margin-right: 15px;
+            }
+
         }
 
         &-ingredients {
@@ -71,8 +76,6 @@
     
     #recipes {
         column-gap: 30px;
-        .recipe {
-        }
     }
   
 }
